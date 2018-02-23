@@ -11,36 +11,36 @@ public class PaymentUtil {
 	private static String encodingCharset = "utf-8";
 
 	/**
-	 * 鐢熸垚hmac鏂规硶
+	 * 
 	 * 
 	 * @param p0_Cmd
-	 *            涓氬姟绫诲瀷
+	 *            
 	 * @param p1_MerId
-	 *            鍟嗘埛缂栧彿
+	 *            
 	 * @param p2_Order
-	 *            鍟嗘埛璁㈠崟鍙�
+	 *            
 	 * @param p3_Amt
-	 *            鏀粯閲戦
+	 *            
 	 * @param p4_Cur
-	 *            浜ゆ槗甯佺
+	 *            
 	 * @param p5_Pid
-	 *            鍟嗗搧鍚嶇О
+	 *            
 	 * @param p6_Pcat
-	 *            鍟嗗搧绉嶇被
+	 *            
 	 * @param p7_Pdesc
-	 *            鍟嗗搧鎻忚堪
+	 *            
 	 * @param p8_Url
-	 *            鍟嗘埛鎺ユ敹鏀粯鎴愬姛鏁版嵁鐨勫湴鍧�
+	 *            
 	 * @param p9_SAF
-	 *            閫佽揣鍦板潃
+	 *            
 	 * @param pa_MP
-	 *            鍟嗘埛鎵╁睍淇℃伅
+	 *            
 	 * @param pd_FrpId
-	 *            閾惰缂栫爜
+	 *            
 	 * @param pr_NeedResponse
-	 *            搴旂瓟鏈哄埗
+	 *            
 	 * @param keyValue
-	 *            鍟嗘埛瀵嗛挜
+	 *           
 	 * @return
 	 */
 	public static String buildHmac(String p0_Cmd, String p1_MerId,
@@ -49,65 +49,38 @@ public class PaymentUtil {
 			String pa_MP, String pd_FrpId, String pr_NeedResponse,
 			String keyValue) {
 		StringBuilder sValue = new StringBuilder();
-		// 涓氬姟绫诲瀷
 		sValue.append(p0_Cmd);
-		// 鍟嗘埛缂栧彿
 		sValue.append(p1_MerId);
-		// 鍟嗘埛璁㈠崟鍙�
 		sValue.append(p2_Order);
-		// 鏀粯閲戦
 		sValue.append(p3_Amt);
-		// 浜ゆ槗甯佺
 		sValue.append(p4_Cur);
-		// 鍟嗗搧鍚嶇О
 		sValue.append(p5_Pid);
-		// 鍟嗗搧绉嶇被
 		sValue.append(p6_Pcat);
-		// 鍟嗗搧鎻忚堪
 		sValue.append(p7_Pdesc);
-		// 鍟嗘埛鎺ユ敹鏀粯鎴愬姛鏁版嵁鐨勫湴鍧�
 		sValue.append(p8_Url);
-		// 閫佽揣鍦板潃
 		sValue.append(p9_SAF);
-		// 鍟嗘埛鎵╁睍淇℃伅
 		sValue.append(pa_MP);
-		// 閾惰缂栫爜
 		sValue.append(pd_FrpId);
-		// 搴旂瓟鏈哄埗
 		sValue.append(pr_NeedResponse);
 
 		return PaymentUtil.hmacSign(sValue.toString(), keyValue);
 	}
 
 	/**
-	 * 杩斿洖鏍￠獙hmac鏂规硶
 	 * 
 	 * @param hmac
-	 *            鏀粯缃戝叧鍙戞潵鐨勫姞瀵嗛獙璇佺爜
 	 * @param p1_MerId
-	 *            鍟嗘埛缂栧彿
 	 * @param r0_Cmd
-	 *            涓氬姟绫诲瀷
 	 * @param r1_Code
-	 *            鏀粯缁撴灉
 	 * @param r2_TrxId
-	 *            鏄撳疂鏀粯浜ゆ槗娴佹按鍙�
 	 * @param r3_Amt
-	 *            鏀粯閲戦
 	 * @param r4_Cur
-	 *            浜ゆ槗甯佺
 	 * @param r5_Pid
-	 *            鍟嗗搧鍚嶇О
 	 * @param r6_Order
-	 *            鍟嗘埛璁㈠崟鍙�
 	 * @param r7_Uid
-	 *            鏄撳疂鏀粯浼氬憳ID
 	 * @param r8_MP
-	 *            鍟嗘埛鎵╁睍淇℃伅
 	 * @param r9_BType
-	 *            浜ゆ槗缁撴灉杩斿洖绫诲瀷
 	 * @param keyValue
-	 *            瀵嗛挜
 	 * @return
 	 */
 	public static boolean verifyCallback(String hmac, String p1_MerId,
@@ -115,27 +88,16 @@ public class PaymentUtil {
 			String r4_Cur, String r5_Pid, String r6_Order, String r7_Uid,
 			String r8_MP, String r9_BType, String keyValue) {
 		StringBuilder sValue = new StringBuilder();
-		// 鍟嗘埛缂栧彿
 		sValue.append(p1_MerId);
-		// 涓氬姟绫诲瀷
 		sValue.append(r0_Cmd);
-		// 鏀粯缁撴灉
 		sValue.append(r1_Code);
-		// 鏄撳疂鏀粯浜ゆ槗娴佹按鍙�
 		sValue.append(r2_TrxId);
-		// 鏀粯閲戦
 		sValue.append(r3_Amt);
-		// 浜ゆ槗甯佺
 		sValue.append(r4_Cur);
-		// 鍟嗗搧鍚嶇О
 		sValue.append(r5_Pid);
-		// 鍟嗘埛璁㈠崟鍙�
 		sValue.append(r6_Order);
-		// 鏄撳疂鏀粯浼氬憳ID
 		sValue.append(r7_Uid);
-		// 鍟嗘埛鎵╁睍淇℃伅
 		sValue.append(r8_MP);
-		// 浜ゆ槗缁撴灉杩斿洖绫诲瀷
 		sValue.append(r9_BType);
 		String sNewString = PaymentUtil.hmacSign(sValue.toString(), keyValue);
 		return sNewString.equals(hmac);
