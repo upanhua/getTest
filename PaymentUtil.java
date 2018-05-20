@@ -198,8 +198,4 @@ public class PaymentUtil {
 		return toHex(md.digest(value));
 
 	}
-
-	// public static void main(String[] args) {
-	// System.out.println(hmacSign("AnnulCard1000043252120080620160450.0http://localhost/SZXpro/callback.asp鏉�4564868265473632445648682654736324511","8UPp0KE8sq73zVP370vko7C39403rtK1YwX40Td6irH216036H27Eb12792t"));
-	// }
 }
